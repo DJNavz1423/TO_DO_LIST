@@ -1,12 +1,12 @@
 #include "class.h"
 
-int main (){
+int main() {
 	TDList lists{};
 
-	lists.fileCheck();
+	lists.fD.fileCheck();
 	char choice;
 	do {
-		lists.displayMenu();
+		lists.fD.displayMenu();
 		std::cin >> choice;
 		std::cin.ignore();
 		switch (choice) {
@@ -16,39 +16,39 @@ int main (){
 		case '2':
 			system("cls");
 			std::cout << "============> Tasks List <=============\n\n";
-			lists.displayTasks(lists.tasks);
+			lists.fD.displayTasks(lists.fD.tasks);
 			std::cin.get();
 			break;
 		case '3':
 			system("cls");
 			std::cout << "====== Remove Task ======\n\n";
-			lists.displayTasks(lists.tasks);
+			lists.fD.displayTasks(lists.fD.tasks);
 			std::cout << "Enter tasks index (space-separated): ";
-			lists.removeTasks(lists.tasks);
+			lists.removeTasks(lists.fD.tasks);
 			std::cin.get();
 			break;
 		case '4':
-			lists.markTaskComplete(lists.tasks);
+			lists.markTaskComplete(lists.fD.tasks);
 			std::cin.get();
 			break;
 		case '5':
 			system("cls");
-			std::cout <<"=======> Completed Tasks List <=======\n\n";
-			lists.displayTasks(lists.completedTasks);
+			std::cout << "=======> Completed Tasks List <=======\n\n";
+			lists.fD.displayTasks(lists.fD.completedTasks);
 			std::cin.get();
 			break;
 		case '6':
 			system("cls");
 			std::cout << "====== Remove Completed Task ======\n\n";
-			lists.displayTasks(lists.completedTasks);
+			lists.fD.displayTasks(lists.fD.completedTasks);
 			std::cout << "Enter tasks index (space-separated): ";
-			lists.removeTasks(lists.completedTasks);
+			lists.removeTasks(lists.fD.completedTasks);
 			std::cin.get();
 			break;
 		case '7':
-			lists.save2File(lists.tasks, "todolist.txt");
-			lists.save2File(lists.completedTasks, "completedtasks.txt");
-			std::cout <<"\n<<<<<<<< \"Program Terminated!\" >>>>>>>>>\n" << "\n    Tasks successfully saved to file\n" << "     ------------------------------\n";
+			lists.fD.save2File(lists.fD.tasks, "todolist.txt");
+			lists.fD.save2File(lists.fD.completedTasks, "completedtasks.txt");
+			std::cout << "\n<<<<<<<< \"Program Terminated!\" >>>>>>>>>\n" << "\n    Tasks successfully saved to file\n" << "     ------------------------------\n";
 			break;
 		default:
 			std::cerr << "\aINVALID INPUT! PLEASE ENTER A NUMBER FROM 1 - 7.\n";
