@@ -37,7 +37,7 @@ struct fileDisplay {
     void displayMenu() {
         system("cls");
         std::cout << "<========> To-Do List <========>\n"
-            << " -------------------------------------\n"
+            << " ------------------------------\n"
             << "\n<====== Menu Options ======>\n"
             << "\n1. Add Task\n"
             << "2. Display Tasks\n"
