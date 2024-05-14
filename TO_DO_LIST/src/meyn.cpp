@@ -46,8 +46,8 @@ int main() {
 			std::cin.get();
 			break;
 		case '7':
-			lists.fD.save2File(lists.fD.tasks, "todolist.txt");
-			lists.fD.save2File(lists.fD.completedTasks, "completedtasks.txt");
+			lists.fD.save2File(lists.fD.tasks, "todolist.txt", "============> Tasks List <=============\n\n");
+			lists.fD.save2File(lists.fD.completedTasks, "completedtasks.txt", "=======> Completed Tasks List <=======\n\n");
 			std::cout << "\n<<<<<<<< \"Program Terminated!\" >>>>>>>>>\n" << "\n    Tasks successfully saved to file\n" << "     ------------------------------\n";
 			break;
 		default:

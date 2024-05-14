@@ -56,6 +56,16 @@ public:
                 std::cerr << "\aINVALID INPUT: " << indexStr << ". IGNORING.\n";
             input.erase(0, pos == string::npos ? pos : pos + 1);
         }
+        char temp = indices2Remove[0];
+        for (int i = 1; i < indices2Remove.size(); i++) {
+            if (temp == indices2Remove[i]) {
+                indices2Remove.erase(indices2Remove.begin() + i);
+                i--;
+            }
+            else {
+                temp = indices2Remove[i];
+            }
+        }
         for (short index : indices2Remove) {
             std::cout << "TASK \"" << tasks[index - 1] << "\" REMOVED.\n";
         }
@@ -100,6 +110,16 @@ public:
             else
                 std::cerr << "\aINVALID INPUT: " << indexStr << ". IGNORING.\n";
             input.erase(0, pos == string::npos ? pos : pos + 1);
+        }
+        char temp = indices2Complete[0];
+        for (int i = 1; i < indices2Complete.size(); i++) {
+            if (temp == indices2Complete[i]) {
+                indices2Complete.erase(indices2Complete.begin() + i);
+                i--;
+            }
+            else {
+                temp = indices2Complete[i];
+            }
         }
         for (short index : indices2Complete) {
             std::cout << "TASK \"" << fD.tasks[index - 1] << "\" FINISHED.\n";

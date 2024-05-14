@@ -17,7 +17,14 @@ struct fileDisplay {
             while (getline(file, task)) {
                 tasks.push_back(task);
             }
+            tasks.erase(tasks.begin(), tasks.begin() + 2);
+            if (!tasks.empty()) {
+                for (auto& str : tasks) {
+                    str.erase(0, 3);
+                }
+            }
             file.close();
+           
         }
         else
             std::cerr << "\aNO EXISTING TO-DO LIST FOUND!\n";
@@ -27,6 +34,12 @@ struct fileDisplay {
             string completedTask;
             while (getline(file, completedTask)) {
                 completedTasks.push_back(completedTask);
+            }
+            completedTasks.erase(completedTasks.begin(), completedTasks.begin() + 2);
+            if (!completedTasks.empty()) {
+                for (auto& str : completedTasks) {
+                    str.erase(0, 3);
+                }
             }
             file.close();
         }
@@ -50,18 +63,20 @@ struct fileDisplay {
             << "Enter your choice (1-7): ";
     }
 
-    void displayTasks(vector<string>& tasks) {
+    void displayTasks(const vector<string>& tasks) {
         for (int i = 0; i < tasks.size(); ++i) {
             std::cout << i + 1 << ". " << tasks[i] << '\n';
         }
         std::cout << "\n<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>\n\n";
     }
 
-    void save2File(const vector<string>& tasks, const string& filename) {
+    void save2File(const vector<string>& tasks, const string& filename, const string& title) {
         std::fstream file(filename, std::ios::out | std::ios::trunc);
         if (file.is_open()) {
+            short i = 1;
+            file << title;
             for (const auto& task : tasks) {
-                file << task << '\n';
+                file << i++ << ". " << task << '\n';
             }
             file.close();
         }
