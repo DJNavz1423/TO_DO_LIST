@@ -56,16 +56,16 @@ public:
                 std::cerr << "\aINVALID INPUT: " << indexStr << ". IGNORING.\n";
             input.erase(0, pos == string::npos ? pos : pos + 1);
         }
-        char temp = indices2Remove[0];
-        for (int i = 1; i < indices2Remove.size(); i++) {
-            if (temp == indices2Remove[i]) {
-                indices2Remove.erase(indices2Remove.begin() + i);
-                i--;
-            }
-            else {
-                temp = indices2Remove[i];
+        for (int h = 0; h < indices2Remove.size(); h++) {
+            char temp = indices2Remove[h];
+            for (int i = h + 1; i < indices2Remove.size(); i++) {
+                if (temp == indices2Remove[i]) {
+                    indices2Remove.erase(indices2Remove.begin() + i);
+                    i--;
+                }
             }
         }
+
         for (short index : indices2Remove) {
             std::cout << "TASK \"" << tasks[index - 1] << "\" REMOVED.\n";
         }
@@ -111,14 +111,13 @@ public:
                 std::cerr << "\aINVALID INPUT: " << indexStr << ". IGNORING.\n";
             input.erase(0, pos == string::npos ? pos : pos + 1);
         }
-        char temp = indices2Complete[0];
-        for (int i = 1; i < indices2Complete.size(); i++) {
-            if (temp == indices2Complete[i]) {
-                indices2Complete.erase(indices2Complete.begin() + i);
-                i--;
-            }
-            else {
-                temp = indices2Complete[i];
+        for (int h = 0; h < indices2Complete.size(); h++) {
+            char temp = indices2Complete[h];
+            for (int i = h + 1; i < indices2Complete.size(); i++) {
+                if (temp == indices2Complete[i]) {
+                    indices2Complete.erase(indices2Complete.begin() + i);
+                    i--;
+                }
             }
         }
         for (short index : indices2Complete) {

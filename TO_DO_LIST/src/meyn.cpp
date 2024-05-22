@@ -17,6 +17,7 @@ int main() {
 			system("cls");
 			std::cout << "============> Tasks List <=============\n\n";
 			lists.fD.displayTasks(lists.fD.tasks);
+			std::cout << "\a\nPRESS ANY KEY TO GO BACK!";
 			std::cin.get();
 			break;
 		case '3':
@@ -25,16 +26,19 @@ int main() {
 			lists.fD.displayTasks(lists.fD.tasks);
 			std::cout << "Enter tasks index (space-separated): ";
 			lists.removeTasks(lists.fD.tasks);
+			std::cout << "\a\nPRESS ANY KEY TO GO BACK!";
 			std::cin.get();
 			break;
 		case '4':
 			lists.markTaskComplete(lists.fD.tasks);
+			std::cout << "\a\nPRESS ANY KEY TO GO BACK!";
 			std::cin.get();
 			break;
 		case '5':
 			system("cls");
 			std::cout << "=======> Completed Tasks List <=======\n\n";
 			lists.fD.displayTasks(lists.fD.completedTasks);
+			std::cout << "\a\nPRESS ANY KEY TO GO BACK!";
 			std::cin.get();
 			break;
 		case '6':
@@ -43,6 +47,7 @@ int main() {
 			lists.fD.displayTasks(lists.fD.completedTasks);
 			std::cout << "Enter tasks index (space-separated): ";
 			lists.removeTasks(lists.fD.completedTasks);
+			std::cout << "\a\nPRESS ANY KEY TO GO BACK!";
 			std::cin.get();
 			break;
 		case '7':
